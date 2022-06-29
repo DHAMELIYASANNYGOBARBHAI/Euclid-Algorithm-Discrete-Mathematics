@@ -1,0 +1,189 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{type1cm}
+\usepackage{eso-pic}
+\usepackage{color}
+\usepackage{ulem}
+\usepackage{everypage}
+\usepackage{amssymb}
+\usepackage[margin=3 cm]{geometry}
+%\usepackage[usenames,dvipsnames]{color}
+\usepackage{amsmath}
+
+
+
+
+\begin{document}
+
+% Article top matter
+\title{\textcolor{BurntOrange}{ Euclid Algorithm }}
+
+\begin{center}
+\huge
+{\bf \textcolor{ForestGreen}{
+{  DISCRETE MATHEMATICS PROJECT }       \\
+}
+}
+\vspace{2 cm}
+\huge
+{ Assigned by : Professor Manish K Gupta  \\
+  Course      : SC 205   \\
+  DISCRETE MATHEMATICS \\
+  DA-IICT      \\
+  GANDHINAGAR  \\
+}
+\vspace{5 cm}
+\LARGE {\it
+{
+  Made by: Dhameliya Sanny\\
+  ID  : 201901031\\
+}
+}
+\end{center}
+\author{
+         Dhameliya Sanny,\\
+         201901031,\\
+         DAIICT,\\
+         GANDHINAGAR,\\
+         GUJARAT,\\
+         INDIA\\
+         \texttt{201901031@daiict.ac.in}
+      }  %\texttt formats the text to a typewriter style font
+
+\date{\today}
+  %\today is replaced with the current date
+\maketitle
+
+
+\begin{abstract}
+\textcolor{black}
+{
+\large
+{
+Euclid (named after the Greek mathematician
+Euclid) algorithm is an approach for finding the
+Greatest Common Divisor ( GCD ) of two
+positive integers, which can be used to reduce
+fractions to their simplest form, and is a part of
+many other number-theoretic and cryptography.
+}
+}
+\end{abstract}
+\newpage
+\large
+\section{\textcolor{BurntOrange}{INTRODUCTION}} ~\cite{1}
+\textsf
+Probably the most common use of the Euclidean Algorithm around the world is for finding modular inverse there is a simple tweak of it that allows you given two integers a,b to calculate integers X,Y such that
+   \[ aX + bY = GCD(a,b) \] \\
+This is known as the extended Euclid Algorithm.In fact, you can skip calculating
+Y entirely.
+\\\\
+\section{\textcolor{BurntOrange}{ PROBLEM FRAMEWORK }}
+\textsf
+Well, if a,b are co-prime this will find you interwar such that 
+    \[ aX + bY = 1 \] \\
+Which to say that 
+ \begin{align*}
+     aX &\equiv 1\mod b 
+ \end{align*}
+                  that is it will find integer X that is inverse of a mod b. since the extended Euclid Algorithm runs quite quickly even for integer it,is efficient method for computing modular inverse. This is very important, because countless cryptography schemes require finding modular inverses as a basic building block.
+For example, in RSA you need to calculate a modular inverse as part of key generation. In ElGamal, modular inverse is used as part of decryption. As variations of all of these different schemes are used any time that you want to send information in a secure manner over the Internet (which is to say, any time you want to do virtually anything on the Internet), it is unlikely that there is another area in which the Euclidean algorithm is called more often.
+\\\\
+\newpage
+\section{\textcolor{BurntOrange}{THE SEQUENTIAL SOLUTION}}
+\textsf
+It is Named after the ancient Greek Mathematician Euclid, who first described
+it his elements (300 B.C).Euclid Algorithm is an efficient method computing the Greatest Common Divisor( GCD ). \\ 
+
+Formally calculating GCD(a,b) : Suppose $(a > b)$ \\\\
+  1. divide b into a : $$ a=q_1b+r_1 $$ \\
+  2. if $ r_1 == 0 $ then \\\\ $ b/a $ and $ GCD(a,b)=b $\\\\
+     else \\\\ represent b by $b=q_2r_1+r_2$ \\\\
+  3.continue in this way until reminder is Zero, the GCD is last non Zero reminder.
+     \[ a = q_1b + r_1 \]
+     \[ b = q_2r_1 + r_2 \]
+     \[ r1 = q_3r_2 + r_3 \]
+     \[ . \]
+     \[ . \]
+     \[ . \]
+     \[ r_k-2 = q_kr_k-1 + r_1k\]
+     \[ b_k-1 = q_k+1r_k + 0 \]
+     \[ GCD(a,b)= r_k \]
+  \\\\
+    
+\section{\textcolor{BurntOrange}{RECURSIVE VERSION}}
+\textsf
+GCD(a,b) \\\\
+r = a mod b \\\\
+if $ r == 0 $ \\\\
+return b;\\\\
+else \\\\
+return GCD(a,b);\\\\
+\section{\textcolor{BurntOrange}{Real life application of Euclid}}
+\textsf
+1.House foundation construction \\
+2.cryptography and RSA\\
+
+\textbf{1.House foundation construction }\\ ~\cite{2}
+Suppose there is a need for cost estimation on 
+the total number of block ( 119 ft ,width doesn’t
+matters) required for the above house
+foundation construction of $ (544 ft * 356 ft) $
+dimension with 230ft height.\\\\
+Known parameters :-\\\\
+Land:\\
+$$ Length(x) = 544 ft $$
+$$ Breadth (y) = 356 ft $$
+$$ Foundation_height = 176ft $$
+Block:\\
+$$ Length ( r ) = 119ft $$
+Width ( doesn’t really matters )\\\\
+
+
+Step 1 : Euclid of land length (544) by Block length (119)\\\\
+Greatest Common Divisor = 17\\
+ $$ Nos.of blocks ( 1 ft ) = ( 544 / 119 ) * 17 = 77.71 ft $$\\\\
+Total no of blocks in 230 ft $ tall = 77.714 * 230 = 17874.28 $ blocks to raise the building foundation on single horizontal (length) level\\\\
+For the two horizontal$ sides = 17874.28 * 2 = 35748.56 blocks $\\\\
+If one block of 119 ft cost 20, it means we will $ need = 20 * 17874.28 = 500,480 $ to raise the
+building foundation on single horizontal
+(length) level \\\\
+
+\textbf{2.cryptography and RSA} ~\cite{3}
+  $$RSA$$
+1.Generate two large unique Prime Numbers p and q.\\
+2.compute $ n = p*q $ and $ Q = (p-1)*(q-1) $\\
+3.select a random Number $ 1 < e < Q $ such that $ GCD(e,Q) =1 $\\
+4.compute the unique integer $ 1< d < Q $ such that
+ \begin{align*}
+     ed &\equiv 1\mod Q  
+ \end{align*}
+ \\
+5.(d,n) is the Privet Key.\\
+6.(e,n) Public Key.
+
+  $$ Encryption $$
+  Represent a message as an integer M in the interval $[0,n-1]$ send out the encrypt data 
+   \begin{align*}
+     c &\equiv m^e\mod Q  
+ \end{align*}
+   $$ Decryption $$
+   Decrypt the key
+    \begin{align*}
+     m &\equiv c^d\mod n  
+ \end{align*}
+  
+
+
+\section{\textcolor{BurntOrange}{APPLICATIONS}}
+\textsf
+Euclid Algorithm is use to find GCD of any two numbers.when GCD values is equal to 1 Menes it is co-prime numbers it is use to RSA cryptography.this is very important of GCD is to find inverse of the numbers. this is very important use of Euclid Algorithm.
+\\\\\
+
+\bibliographystyle{plain}
+\bibliography{201901031}
+
+
+\end{document} %End of document
